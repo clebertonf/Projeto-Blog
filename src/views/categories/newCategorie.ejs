@@ -3,9 +3,19 @@
     <%- include('../partials/navbar') %>
     <div class="container">
         <hr>
+        <% if (exists) { %>
+            <div class="alert alert-danger" role="alert">
+                <%= exists %> 
+              </div>
+        <% } %>
         <% if (error) { %>
             <div class="alert alert-danger" role="alert">
                 <%= error %> 
+              </div>
+        <% } %>
+        <% if (sucess) { %>
+            <div class="alert alert-success" role="alert">
+                <%= sucess %> 
               </div>
         <% } %>
         <div class="card">

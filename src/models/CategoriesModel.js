@@ -12,6 +12,13 @@ const addCategorieBank = async (title) => {
   }
 };
 
+const findCategorieBank = async (title) => {
+  const query = `SELECT * FROM blog.tb_categories WHERE title LIKE '%${title}%'`;
+  const [response] = await connection.execute(query, [title]);
+  return response;
+};
+
 module.exports = {
   addCategorieBank,
+  findCategorieBank,
 };
