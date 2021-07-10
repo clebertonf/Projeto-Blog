@@ -1,9 +1,11 @@
+DROP DATABASE IF EXISTS blog;
 CREATE SCHEMA IF NOT EXISTS blog;
 
 USE blog;
 CREATE TABLE tb_categories (
     id_categories INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    title VARCHAR(50) NOT NULL
+    title VARCHAR(50) NOT NULL,
+    slug VARCHAR(50) NOT NULL
 ) ENGINE = innodb;
 
 CREATE TABLE tb_articles (
@@ -13,7 +15,7 @@ CREATE TABLE tb_articles (
     FOREIGN KEY (id_categories) REFERENCES tb_categories(id_categories)
 ) ENGINE = innodb;
 
-INSERT INTO tb_categories (title) VALUES ('Tecnologia'), ('Moda');
+INSERT INTO tb_categories (title, slug) VALUES ('Tecnologia e inovação', 'Tecnologia-e-inovação');
 INSERT INTO tb_articles (body, id_categories) VALUES ('Este e um artigo de tec.', 1);
 INSERT INTO tb_articles (body, id_categories) VALUES ('Aqui temos mais um artigo de tec.', 1);
 
@@ -21,3 +23,5 @@ INSERT INTO tb_articles (body, id_categories) VALUES ('Aqui temos mais um artigo
 SELECT a.Title as Categoria, b.body as Artigo
  FROM tb_categories as a 
   INNER JOIN tb_articles as b USING(id_categories);
+  
+SELECT * FROM blog.tb_categories;
