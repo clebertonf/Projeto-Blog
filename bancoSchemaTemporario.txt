@@ -1,3 +1,4 @@
+Anotaçoes Banco
 
 -- Model categoria
 
@@ -9,3 +10,5 @@ table name: categories (title:string, not null,
 table name: articles (title:string, not null, 
                       slug: string, not null,
                       body:text, not null)
+
+Relacionamento 1:N entre categoria e artigos
