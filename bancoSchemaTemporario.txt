@@ -1,0 +1,11 @@
+
+-- Model categoria
+
+table name: categories (title:string, not null,
+                        slug: string, not null)
+
+-- Model artigos
+
+table name: articles (title:string, not null, 
+                      slug: string, not null,
+                      body:text, not null)
