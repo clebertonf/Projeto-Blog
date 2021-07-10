@@ -1,5 +1,8 @@
 const router = require('express').Router();
 
-router.get('/categories/new', (req, resp) => resp.render('categories/newCategorie'));
+const { renderViewAddCategorie, addCategorieBank } = require('../controllers/CategoriesController');
+
+router.get('/categories/new', renderViewAddCategorie);
+router.post('/categories/save', addCategorieBank);
 
 module.exports = router;
