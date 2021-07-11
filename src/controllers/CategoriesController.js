@@ -1,9 +1,7 @@
 const CategoriesModel = require('../models/CategoriesModel');
 
 const renderViewAddCategorie = (_req, resp) => {
-  const error = false;
-  const exists = false;
-  const sucess = false;
+  const error = exists = sucess = false;
   resp.render('categories/newCategorie', { error, exists, sucess });
 };
 
@@ -16,20 +14,17 @@ const addCategorieBank = async (req, resp) => {
   const findCategorieExists = await CategoriesModel.findCategorieBank(title);
 
   if (findCategorieExists.length >= 1) {
-    sucess = false;
-    error = false;
+    sucess = error = false;
     resp.render('categories/newCategorie', { error, exists, sucess });
     return;
   }
 
   const response = await CategoriesModel.addCategorieBank(title);
   if (response) {
-    error = false;
-    exists = false;
+    error = exists = false;
     resp.render('categories/newCategorie', { error, exists, sucess });
   } else {
-    sucess = false;
-    exists = false;
+    sucess = exists = false;
     resp.render('categories/newCategorie', { error, exists, sucess });
   }
 };
