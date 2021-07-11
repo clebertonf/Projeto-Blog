@@ -18,7 +18,17 @@ const findCategorieBank = async (title) => {
   return response;
 };
 
+const listCategoriesBank =  async () => {
+ try {
+   const query = 'SELECT * FROM blog.tb_categories';
+   const [response] = await connection.execute(query);
+   return response;
+ } catch (err) {
+   console.error(err)
+ }
+}
 module.exports = {
   addCategorieBank,
   findCategorieBank,
+  listCategoriesBank
 };
