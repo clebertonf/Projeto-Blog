@@ -29,7 +29,11 @@
                             </th>
                             <th>
                                 <button type="button" class="btn btn-outline-warning">Editar</button>
-                                <button type="button" class="btn btn-outline-danger">Deletar</button>
+                                
+                                <form action="/admin/categories/delete" method="POST" style="display: inline">
+                                    <input type="hidden" name="id" value="<%= element.id_categories %>">
+                                    <button class="btn btn-outline-danger">Deletar</button>
+                                </form>
                             </th>
                         </tr>
                     <% }) %>

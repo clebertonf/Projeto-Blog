@@ -34,8 +34,15 @@ const listCategories = async (req, resp) => {
   if(response) resp.render('categories/listCategories', { response });
 }
 
+const deleteCategorie = async (req, resp) => {
+    const { id } = req.body;
+    const response = await CategoriesModel.deleteCategorieBank(id);
+    if(response) resp.redirect('/admin/categories/list');
+}
+
 module.exports = {
   renderViewAddCategorie,
   addCategorieBank,
-  listCategories
+  listCategories,
+  deleteCategorie
 };

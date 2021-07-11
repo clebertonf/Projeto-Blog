@@ -27,8 +27,21 @@ const listCategoriesBank =  async () => {
    console.error(err)
  }
 }
+
+const deleteCategorieBank = async (id) => {
+  try {
+    const query = 'DELETE FROM blog.tb_categories WHERE id_categories = ?';
+    const response = connection.execute(query, [id]);
+    return response;
+    
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 module.exports = {
   addCategorieBank,
   findCategorieBank,
-  listCategoriesBank
+  listCategoriesBank,
+  deleteCategorieBank
 };
