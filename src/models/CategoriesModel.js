@@ -17,32 +17,30 @@ const findCategorieBank = async (title) => {
     const query = `SELECT * FROM blog.tb_categorie WHERE title LIKE '%${title}%'`;
     const [response] = await connection.execute(query, [title]);
     return response;
-    
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
 };
 
-const listCategoriesBank =  async () => {
- try {
-   const query = 'SELECT * FROM blog.tb_categorie';
-   const [response] = await connection.execute(query);
-   return response;
- } catch (err) {
-   console.error(err)
- }
-}
+const listCategoriesBank = async () => {
+  try {
+    const query = 'SELECT * FROM blog.tb_categorie';
+    const [response] = await connection.execute(query);
+    return response;
+  } catch (err) {
+    console.error(err);
+  }
+};
 
 const deleteCategorieBank = async (id) => {
   try {
     const query = 'DELETE FROM blog.tb_categorie WHERE id_categorie = ?';
     const response = connection.execute(query, [id]);
     return response;
-    
   } catch (err) {
     console.error(err);
   }
-}
+};
 
 const searchCategorieID = async (id) => {
   try {
@@ -50,9 +48,9 @@ const searchCategorieID = async (id) => {
     const [response] = await connection.execute(query, [id]);
     return response[0];
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
-}
+};
 
 const updateCategorieBank = async (title, id) => {
   try {
@@ -61,9 +59,9 @@ const updateCategorieBank = async (title, id) => {
     const [response] = await connection.execute(query, [title, slugTitle, id]);
     return response;
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
-} 
+};
 
 module.exports = {
   addCategorieBank,
@@ -71,5 +69,5 @@ module.exports = {
   listCategoriesBank,
   deleteCategorieBank,
   searchCategorieID,
-  updateCategorieBank
+  updateCategorieBank,
 };
