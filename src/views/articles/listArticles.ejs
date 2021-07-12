@@ -12,12 +12,35 @@
                     <th>ID</th>
                     <th>Titulo</th>
                     <th>Slug</th>
-                    <th>Category</th>
+                    <th>Categoria</th>
                     <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
-    
+                    <% response.forEach(element => { %>
+                        <tr>
+                            <th>
+                                <%= element.id_article %> 
+                            </th>
+                            <th>
+                                <%= element.title %> 
+                            </th>
+                            <th>
+                                <%= element.slug %> 
+                            </th>
+                            <th>
+                                <%= element.title_categorie %> 
+                            </th>
+                            <th>
+                                <a href="/admin/categories/search/<%= element.id_categorie %> " class="btn btn-outline-warning">Editar</a>
+                                
+                                <form action="/admin/categories/delete" method="POST" style="display: inline" onsubmit="confirmDelet(event, this)">
+                                    <input type="hidden" name="id" value="<%= element.id_categorie %>">
+                                    <button class="btn btn-outline-danger">Deletar</button>
+                                </form>
+                            </th>
+                        </tr>
+                    <% }) %>
             </tbody>
         </table>
     </div>

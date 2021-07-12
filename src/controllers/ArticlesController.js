@@ -9,12 +9,12 @@ const renderViewAddArticle = async (req, resp) => {
 const createArticle = async (req, resp) => {
     const { title, article, id_categorie } = req.body;
     const response = await ArticlesModel.addArticleBank(title, article, id_categorie);
-    if(response) resp.redirect('/');
+    if(response) resp.redirect('/admin/articles/list');
 }
 
 const listArticles = async (_req, resp) => {
     const response = await ArticlesModel.listArticleBank();
-    if (response.length >=1 ) return resp.render('articles/listArticles',{ response });
+    if (response) return resp.render('articles/listArticles',{ response });
     resp.redirect('/articles/list');
 }
 
