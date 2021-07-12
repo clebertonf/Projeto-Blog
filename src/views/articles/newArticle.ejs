@@ -13,6 +13,13 @@
                     <br>
                     <textarea id="article" name="body" class="form-control" placeholder="Escreva seu artigo"></textarea>
                     <br>
+                    <label>Selecione uma categoria</label>
+                    <select name="categorie" class="form-control">
+                       <% response.map(categorie => { %>
+                            <option><%= categorie.title %> </option>
+                       <% }) %>
+                    </select>
+                    <br>
                     <button class="btn btn-outline-success">Enviar</button>
                 </form>
             </div>
@@ -24,6 +31,7 @@
 <script>
     tinymce.init({
         selector: "#article",
+        language: "pt_BR",
         plugins: ['advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons']
     });
 </script>
