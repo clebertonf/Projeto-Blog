@@ -43,8 +43,8 @@ const deleteCategorie = async (req, resp) => {
 const searchCategorieID = async (req, resp) => {
   const { id } = req.params;
   const response = await CategoriesModel.searchCategorieID(id);
-  if(response) resp.render('categories/editCategorie', { response });
-  resp.render('categories/editCategorie', {});
+  if(response) return resp.render('categories/editCategorie', { response });
+  resp.render('categories/editCategorie', { response });
 }
 
 const updateCategorie = async (req, resp) => {

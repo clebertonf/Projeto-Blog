@@ -8,15 +8,15 @@
                 <h2>Novo artigo</h2>
             </div>
             <div class="card-body">
-                <form action="/admin/categories/save" method="POST">
+                <form action="/admin/articles/save" method="POST">
                     <input class="form-control" type="text" name="title" placeholder="Nome do artigo" required=true>
                     <br>
-                    <textarea id="article" name="body" class="form-control" placeholder="Escreva seu artigo"></textarea>
+                    <textarea id="article" name="article" class="form-control" placeholder="Escreva seu artigo"></textarea>
                     <br>
                     <label>Selecione uma categoria</label>
-                    <select name="categorie" class="form-control">
+                    <select name="id_categorie" class="form-control">
                        <% response.map(categorie => { %>
-                            <option><%= categorie.title %> </option>
+                            <option value="<%= categorie.id_categorie %> "><%= categorie.title %> </option>
                        <% }) %>
                     </select>
                     <br>

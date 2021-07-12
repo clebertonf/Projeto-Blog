@@ -1,6 +1,8 @@
 const router = require('express').Router();
-const { renderViewAddArticle } = require('../controllers/ArticlesController');
+const { renderViewAddArticle, createArticle } = require('../controllers/ArticlesController');
 
 router.get('/articles/new', renderViewAddArticle);
+router.post('/articles/save', createArticle);
+
 
 module.exports = router;

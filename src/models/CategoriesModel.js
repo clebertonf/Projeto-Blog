@@ -4,7 +4,7 @@ const connection = require('./connection');
 const addCategorieBank = async (title) => {
   try {
     const slugTitle = slugify(title);
-    const query = 'INSERT INTO blog.tb_categories (title, slug) VALUES (?, ?)';
+    const query = 'INSERT INTO blog.tb_categorie (title, slug) VALUES (?, ?)';
     const response = await connection.execute(query, [title, slugTitle]);
     return response;
   } catch (err) {
@@ -14,7 +14,7 @@ const addCategorieBank = async (title) => {
 
 const findCategorieBank = async (title) => {
   try {
-    const query = `SELECT * FROM blog.tb_categories WHERE title LIKE '%${title}%'`;
+    const query = `SELECT * FROM blog.tb_categorie WHERE title LIKE '%${title}%'`;
     const [response] = await connection.execute(query, [title]);
     return response;
     
@@ -25,7 +25,7 @@ const findCategorieBank = async (title) => {
 
 const listCategoriesBank =  async () => {
  try {
-   const query = 'SELECT * FROM blog.tb_categories';
+   const query = 'SELECT * FROM blog.tb_categorie';
    const [response] = await connection.execute(query);
    return response;
  } catch (err) {
@@ -35,7 +35,7 @@ const listCategoriesBank =  async () => {
 
 const deleteCategorieBank = async (id) => {
   try {
-    const query = 'DELETE FROM blog.tb_categories WHERE id_categories = ?';
+    const query = 'DELETE FROM blog.tb_categorie WHERE id_categorie = ?';
     const response = connection.execute(query, [id]);
     return response;
     
@@ -46,7 +46,7 @@ const deleteCategorieBank = async (id) => {
 
 const searchCategorieID = async (id) => {
   try {
-    const query = 'SELECT * FROM blog.tb_categories WHERE id_categories = ?';
+    const query = 'SELECT * FROM blog.tb_categorie WHERE id_categorie = ?';
     const [response] = await connection.execute(query, [id]);
     return response[0];
   } catch (err) {
@@ -57,7 +57,7 @@ const searchCategorieID = async (id) => {
 const updateCategorieBank = async (title, id) => {
   try {
     const slugTitle = slugify(title);
-    const query = 'UPDATE blog.tb_categories SET title = ?, slug= ? WHERE id_categories = ?';
+    const query = 'UPDATE blog.tb_categorie SET title = ?, slug= ? WHERE id_categorie = ?';
     const [response] = await connection.execute(query, [title, slugTitle, id]);
     return response;
   } catch (err) {

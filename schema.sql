@@ -2,17 +2,23 @@ DROP DATABASE IF EXISTS blog;
 CREATE SCHEMA IF NOT EXISTS blog;
 
 USE blog;
-CREATE TABLE tb_categories (
-    id_categories INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+CREATE TABLE tb_categorie (
+    id_categorie INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     title VARCHAR(50) NOT NULL,
-    slug VARCHAR(50) NOT NULL
+    slug VARCHAR(50) NOT NULL,
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE = innodb;
 
-CREATE TABLE tb_articles (
-	id_articles INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    body TEXT NOT NULL,
-    id_categories INT NOT NULL,
-    FOREIGN KEY (id_categories) REFERENCES tb_categories(id_categories)
+CREATE TABLE tb_article (
+	id_article INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    title VARCHAR(50) NOT NULL,
+    article TEXT NOT NULL,
+    slug VARCHAR(50) NOT NULL,
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    id_categorie INT NOT NULL,
+    FOREIGN KEY (id_categorie) REFERENCES tb_categorie(id_categorie)
 ) ENGINE = innodb;
 
 

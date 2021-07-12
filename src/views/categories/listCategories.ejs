@@ -19,7 +19,7 @@
                     <% response.forEach(element => { %>
                         <tr>
                             <th>
-                                <%= element.id_categories %> 
+                                <%= element.id_categorie %> 
                             </th>
                             <th>
                                 <%= element.title %> 
@@ -28,10 +28,10 @@
                                 <%= element.slug %> 
                             </th>
                             <th>
-                                <a href="/admin/categories/search/<%= element.id_categories %> " class="btn btn-outline-warning">Editar</a>
+                                <a href="/admin/categories/search/<%= element.id_categorie %> " class="btn btn-outline-warning">Editar</a>
                                 
                                 <form action="/admin/categories/delete" method="POST" style="display: inline" onsubmit="confirmDelet(event, this)">
-                                    <input type="hidden" name="id" value="<%= element.id_categories %>">
+                                    <input type="hidden" name="id" value="<%= element.id_categorie %>">
                                     <button class="btn btn-outline-danger">Deletar</button>
                                 </form>
                             </th>
