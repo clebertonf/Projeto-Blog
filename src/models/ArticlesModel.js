@@ -8,6 +8,13 @@ const addArticleBank = async (title, article, id_categorie) => {
     return response;
 };
 
+const listArticleBank = async () => {
+    const query = 'SELECT * FROM blog.tb_article';
+    const [response] = await connection.execute(query);
+    return response;
+};
+
 module.exports = {
     addArticleBank,
+    listArticleBank
 }

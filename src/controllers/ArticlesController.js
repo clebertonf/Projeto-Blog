@@ -13,7 +13,9 @@ const createArticle = async (req, resp) => {
 }
 
 const listArticles = async (_req, resp) => {
-    console.log('list');
+    const response = await ArticlesModel.listArticleBank();
+    if (response.length >=1 ) return resp.render('articles/listArticles',{ response });
+    resp.redirect('/articles/list');
 }
 
 module.exports = {
