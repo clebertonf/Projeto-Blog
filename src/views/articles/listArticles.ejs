@@ -34,8 +34,8 @@
                             <th>
                                 <a href="/admin/categories/search/<%= element.id_categorie %> " class="btn btn-outline-warning">Editar</a>
                                 
-                                <form action="/admin/categories/delete" method="POST" style="display: inline" onsubmit="confirmDelet(event, this)">
-                                    <input type="hidden" name="id" value="<%= element.id_categorie %>">
+                                <form action="/admin/articles/delete" method="POST" style="display: inline" onsubmit="confirmDelet(event, this)">
+                                    <input type="hidden" name="id" value="<%= element.id_article %>">
                                     <button class="btn btn-outline-danger">Deletar</button>
                                 </form>
                             </th>

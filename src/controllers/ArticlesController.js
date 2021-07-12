@@ -18,8 +18,15 @@ const listArticles = async (_req, resp) => {
     resp.redirect('/articles/list');
 }
 
+const deleteArticle = async (req, resp) => {
+    const { id } = req.body;
+    const response = await ArticlesModel.deleteArticleBank(id);
+    if(response) resp.redirect('/admin/articles/list');
+}
+
 module.exports = {
     renderViewAddArticle,
     createArticle,
-    listArticles
+    listArticles,
+    deleteArticle
 }
