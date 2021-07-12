@@ -12,6 +12,6 @@
     },
     "rules": {
         "no-console": "off",
-        "ignoreNonDeclaration": 1
+        "ignoreNonDeclaration": true
     }
 }

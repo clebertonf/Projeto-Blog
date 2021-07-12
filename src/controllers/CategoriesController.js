@@ -31,27 +31,27 @@ const addCategorieBank = async (req, resp) => {
 
 const listCategories = async (_req, resp) => {
   const response = await CategoriesModel.listCategoriesBank();
-  if(response) resp.render('categories/listCategories', { response });
-}
+  if (response) resp.render('categories/listCategories', { response });
+};
 
 const deleteCategorie = async (req, resp) => {
-    const { id } = req.body;
-    const response = await CategoriesModel.deleteCategorieBank(id);
-    if(response) resp.redirect('/admin/categories/list');
-}
+  const { id } = req.body;
+  const response = await CategoriesModel.deleteCategorieBank(id);
+  if (response) resp.redirect('/admin/categories/list');
+};
 
 const searchCategorieID = async (req, resp) => {
   const { id } = req.params;
   const response = await CategoriesModel.searchCategorieID(id);
-  if(response) return resp.render('categories/editCategorie', { response });
+  if (response) return resp.render('categories/editCategorie', { response });
   resp.render('categories/editCategorie', { response });
-}
+};
 
 const updateCategorie = async (req, resp) => {
   const { title, id } = req.body;
   const response = await CategoriesModel.updateCategorieBank(title, id);
-  if(response) resp.redirect('/admin/categories/list');
-} 
+  if (response) resp.redirect('/admin/categories/list');
+};
 
 module.exports = {
   renderViewAddCategorie,
@@ -59,5 +59,5 @@ module.exports = {
   listCategories,
   deleteCategorie,
   searchCategorieID,
-  updateCategorie
+  updateCategorie,
 };
