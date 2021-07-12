@@ -15,13 +15,4 @@ CREATE TABLE tb_articles (
     FOREIGN KEY (id_categories) REFERENCES tb_categories(id_categories)
 ) ENGINE = innodb;
 
-INSERT INTO tb_categories (title, slug) VALUES ('Tecnologia e inovação', 'Tecnologia-e-inovação');
-INSERT INTO tb_articles (body, id_categories) VALUES ('Este e um artigo de tec.', 1);
-INSERT INTO tb_articles (body, id_categories) VALUES ('Aqui temos mais um artigo de tec.', 1);
 
-
-SELECT a.Title as Categoria, b.body as Artigo
- FROM tb_categories as a 
-  INNER JOIN tb_articles as b USING(id_categories);
-  
-SELECT * FROM blog.tb_categories;
