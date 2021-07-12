@@ -12,7 +12,12 @@ const createArticle = async (req, resp) => {
     if(response) resp.redirect('/');
 }
 
+const listArticles = async (_req, resp) => {
+    console.log('list');
+}
+
 module.exports = {
     renderViewAddArticle,
-    createArticle
+    createArticle,
+    listArticles
 }
