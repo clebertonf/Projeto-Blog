@@ -1,6 +1,28 @@
 <%- include('../partials/header') %>
 <body>
     <%- include('../partials/navbar') %>
-    <h1>Criar artigo</h1>
+    <div class="container">
+        <hr>
+        <div class="card">
+            <div class="card-header">
+                <h2>Novo artigo</h2>
+            </div>
+            <div class="card-body">
+                <form action="/admin/categories/save" method="POST">
+                    <input class="form-control" type="text" name="title" placeholder="Nome do artigo" required=true>
+                    <br>
+                    <textarea id="article" name="body" class="form-control" placeholder="Escreva seu artigo"></textarea>
+                    <br>
+                    <button class="btn btn-outline-success">Enviar</button>
+                </form>
+            </div>
+            </div>
+        </div>
 </body>
 <%- include('../partials/footer') %>
+<script src="/tinymce/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector: "#article"
+    });
+</script>
