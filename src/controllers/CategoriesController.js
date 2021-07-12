@@ -29,7 +29,7 @@ const addCategorieBank = async (req, resp) => {
   }
 };
 
-const listCategories = async (req, resp) => {
+const listCategories = async (_req, resp) => {
   const response = await CategoriesModel.listCategoriesBank();
   if(response) resp.render('categories/listCategories', { response });
 }
@@ -40,9 +40,24 @@ const deleteCategorie = async (req, resp) => {
     if(response) resp.redirect('/admin/categories/list');
 }
 
+const searchCategorieID = async (req, resp) => {
+  const { id } = req.params;
+  const response = await CategoriesModel.searchCategorieID(id);
+  if(response) resp.render('categories/editCategorie', { response });
+  resp.render('categories/editCategorie', {});
+}
+
+const updateCategorie = async (req, resp) => {
+  const { title, id } = req.body;
+  const response = await CategoriesModel.updateCategorieBank(title, id);
+  if(response) resp.redirect('/admin/categories/list');
+} 
+
 module.exports = {
   renderViewAddCategorie,
   addCategorieBank,
   listCategories,
-  deleteCategorie
+  deleteCategorie,
+  searchCategorieID,
+  updateCategorie
 };

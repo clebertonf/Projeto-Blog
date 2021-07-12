@@ -44,9 +44,32 @@ const deleteCategorieBank = async (id) => {
   }
 }
 
+const searchCategorieID = async (id) => {
+  try {
+    const query = 'SELECT * FROM blog.tb_categories WHERE id_categories = ?';
+    const [response] = await connection.execute(query, [id]);
+    return response[0];
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+const updateCategorieBank = async (title, id) => {
+  try {
+    const slugTitle = slugify(title);
+    const query = 'UPDATE blog.tb_categories SET title = ?, slug= ? WHERE id_categories = ?';
+    const [response] = await connection.execute(query, [title, slugTitle, id]);
+    return response;
+  } catch (err) {
+    console.error(err)
+  }
+} 
+
 module.exports = {
   addCategorieBank,
   findCategorieBank,
   listCategoriesBank,
-  deleteCategorieBank
+  deleteCategorieBank,
+  searchCategorieID,
+  updateCategorieBank
 };

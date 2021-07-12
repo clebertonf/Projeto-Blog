@@ -28,9 +28,9 @@
                                 <%= element.slug %> 
                             </th>
                             <th>
-                                <button type="button" class="btn btn-outline-warning">Editar</button>
+                                <a href="/admin/categories/search/<%= element.id_categories %> " class="btn btn-outline-warning">Editar</a>
                                 
-                                <form action="/admin/categories/delete" method="POST" style="display: inline">
+                                <form action="/admin/categories/delete" method="POST" style="display: inline" onsubmit="confirmDelet(event, this)">
                                     <input type="hidden" name="id" value="<%= element.id_categories %>">
                                     <button class="btn btn-outline-danger">Deletar</button>
                                 </form>
@@ -43,3 +43,10 @@
     
 </body>
 <%- include('../partials/footer') %></hr>
+<script>
+    const confirmDelet = (event, form) => {
+        event.preventDefault();
+        let response = confirm("Deseja realmente deletar?");
+        if(response) form.submit();
+    }
+</script>
