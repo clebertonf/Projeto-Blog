@@ -12,18 +12,32 @@
           <a  class="btn btn-outline-dark" href="#" role="button">Saber mais</a>
         </p>
       </div>
-      <hr>
-      <% response.forEach(article => { %>
-            <div class="card">
-                <div class="card-header">
-                    <%= article.title %> 
+        <br> <br>
+      <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <!-- Post preview-->
+                <div class="post-preview">
+                    <% response.forEach(post => { %>
+                        <a href="#">
+                            <h2 class="post-title"><%= post.title %> </h2>
+                            <h3 class="post-subtitle"><%- post.article %> </h3>
+                        </a>
+                        <p class="post-meta">
+                            Posted by
+                            <a href="#!">Start Bootstrap</a>
+                            on July 8, 2021
+                        </p>
+                        <hr>
+                    <% }) %>
                 </div>
-                <div class="card-body">
-                    <%= article.article %>
-                </div>
+                <!-- Divider-->
+                <!-- Divider-->
+                <hr class="my-4" />
+                <!-- Pager-->
+                <div class="d-flex justify-content-end mb-4"> <a  class="btn btn-outline-dark" href="#" role="button">Mais publicações</a></div>
             </div>
-      <% }) %>
-
-   </div>
+        </div>
+    </div>
 </body>
 <%- include('partials/footer') %>
