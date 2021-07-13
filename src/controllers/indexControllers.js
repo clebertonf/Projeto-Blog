@@ -1,4 +1,4 @@
-const ArticlesModel = require('../models/ArticlesModel');
+const ArticlesModel = require('../models/IndexModel');
 
 const listArticles = async (_req, resp) => {
   const response = await ArticlesModel.listArticleBank();

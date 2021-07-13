@@ -1,5 +1,6 @@
 const router = require('express').Router();
+const { listArticles } = require('../controllers/indexControllers');
 
-router.get('/', (req, resp) => resp.render('index'));
+router.get('/', listArticles);
 
 module.exports = router;
