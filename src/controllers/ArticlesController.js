@@ -7,8 +7,10 @@ const renderViewAddArticle = async (req, resp) => {
 };
 
 const createArticle = async (req, resp) => {
-  const { title, article, idCategorie } = req.body;
-  const response = await ArticlesModel.addArticleBank(title, article, idCategorie);
+  const {
+    title, preview, article, idCategorie,
+  } = req.body;
+  const response = await ArticlesModel.addArticleBank(title, preview, article, idCategorie);
   if (response) resp.redirect('/admin/articles/list');
 };
 
