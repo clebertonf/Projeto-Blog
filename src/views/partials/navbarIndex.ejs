@@ -9,6 +9,12 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
+          <% categories.forEach(categorie => { %>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/"><%= categorie.title %> </a>
+            </li>
+          <% }) %>
+        </ul>
       </div>
     </div>
   </nav>

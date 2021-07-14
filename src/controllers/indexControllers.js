@@ -1,8 +1,10 @@
 const ArticlesModel = require('../models/IndexModel');
+const CategoriesModel = require('../models/CategoriesModel');
 
 const listArticles = async (_req, resp) => {
+  const categories = await CategoriesModel.listCategoriesBank();
   const response = await ArticlesModel.listArticleBank();
-  if (response.length >= 1) return resp.render('index', { response });
+  if (response.length >= 1) return resp.render('index', { response, categories });
   resp.render('index', { response });
 };
 
