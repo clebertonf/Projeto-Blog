@@ -8,7 +8,6 @@ const viewCreateUser = (req, resp) => {
 
 const createUser = (req, resp) => {
   const { name, email, password } = req.body;
-  console.log(name, email, password);
 };
 
 module.exports = {
