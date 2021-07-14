@@ -22,4 +22,10 @@ CREATE TABLE tb_article (
     FOREIGN KEY (id_categorie) REFERENCES tb_categorie(id_categorie)
 ) ENGINE = innodb;
 
+CREATE TABLE tb_user (
+    id_user INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    name VARCHAR(60),
+    email VARCHAR(60) NOT NULL,
+    password VARCHAR(60) NOT NULL
+);
 
