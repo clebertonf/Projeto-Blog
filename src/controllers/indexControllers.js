@@ -5,17 +5,26 @@ const listArticles = async (_req, resp) => {
   const categories = await CategoriesModel.listCategoriesBank();
   const response = await ArticlesModel.listArticleBank();
   if (response.length >= 1) return resp.render('index', { response, categories });
-  resp.render('index', { response });
+  resp.render('index', { response, categories });
 };
 
-const listPostId = async (req, resp) => {
+const listArticleId = async (req, resp) => {
   const { slug } = req.params;
+  const categories = await CategoriesModel.listCategoriesBank();
   const response = await ArticlesModel.listArticleIDBank(slug);
   const article = response[0];
-  if (response.length >= 1) return resp.render('articles/articleId', { article });
+  if (response.length >= 1) return resp.render('articles/articleId', { article, categories });
 };
 
+const listArticlesCategory = async (req, resp) => {
+  const { id } = req.params;
+  const categories = await CategoriesModel.listCategoriesBank();
+  const articles = await ArticlesModel.listArticlesByCategoryBank(id);
+  if (articles.length >= 1) return resp.render('articles/articlesByCategorie', { articles, categories });
+  return resp.render('articles/notFound', { articles, categories });
+};
 module.exports = {
   listArticles,
-  listPostId,
+  listArticleId,
+  listArticlesCategory,
 };

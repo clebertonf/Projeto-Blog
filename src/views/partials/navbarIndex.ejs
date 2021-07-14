@@ -11,7 +11,7 @@
           </li>
           <% categories.forEach(categorie => { %>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/"><%= categorie.title %> </a>
+              <a class="nav-link active" aria-current="page" href="/category/<%= categorie.id_categorie %> "><%= categorie.title %> </a>
             </li>
           <% }) %>
         </ul>

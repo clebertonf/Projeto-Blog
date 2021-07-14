@@ -29,4 +29,5 @@ module.exports = {
   addArticleBank,
   listArticleBank,
   deleteArticleBank,
+
 };
