@@ -30,8 +30,19 @@ const listUsersBank = async () => {
   }
 };
 
+const deleteUserBank = async (id) => {
+  try {
+    const query = 'DELETE FROM blog.tb_user WHERE id_user = ?';
+    const response = await connection.execute(query, [id]);
+    return response;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 module.exports = {
   createNewUserBank,
   verifyUserBank,
   listUsersBank,
+  deleteUserBank,
 };

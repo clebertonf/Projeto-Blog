@@ -8,7 +8,7 @@ const viewCreateUser = (req, resp) => {
 
 const createUser = async (req, resp) => {
   const { name, email, password } = req.body;
-  let error = 'Email informado ja existe';
+  const error = 'Email informado ja existe';
 
   const userExists = await UserModel.verifyUserBank(email);
   if (userExists.length >= 1) return resp.render('user/createUser', { error });
@@ -17,10 +17,7 @@ const createUser = async (req, resp) => {
   const hash = bcrypt.hashSync(password, salt);
 
   const response = await UserModel.createNewUserBank(name, email, hash);
-  if (response) {
-    error = false;
-    return resp.redirect('/admin/list/users');
-  }
+  if (response) return resp.redirect('/admin/list/users');
 };
 
 const listUsers = async (req, resp) => {
@@ -29,8 +26,16 @@ const listUsers = async (req, resp) => {
   if (response) return resp.render('user/listUsers', { response });
 };
 
+const deleteUser = async (req, resp) => {
+  const { id } = req.body;
+
+  const response = await UserModel.deleteUserBank(id);
+  if (response) return resp.redirect('/admin/list/users');
+};
+
 module.exports = {
   listUsers,
   viewCreateUser,
   createUser,
+  deleteUser,
 };
