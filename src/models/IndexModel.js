@@ -1,7 +1,7 @@
 const connection = require('./connection');
 
 const listArticleBank = async () => {
-  const query = 'SELECT * FROM blog.tb_article ORDER BY id_article DESC';
+  const query = 'SELECT * FROM blog.tb_article ORDER BY id_article LIMIT 5';
   const [response] = await connection.execute(query);
   return response;
 };
@@ -18,8 +18,17 @@ const listArticlesByCategoryBank = async (id) => {
   return response;
 };
 
+const listArticlesNumBank = async (num) => {
+  const quanty = 5;
+  const offSet = num * 5;
+  const query = `SELECT * FROM blog.tb_article ORDER BY id_article LIMIT ${quanty} OFFSET ${offSet}`;
+  const [response] = await connection.execute(query);
+  return response;
+};
+
 module.exports = {
   listArticleBank,
   listArticleIDBank,
   listArticlesByCategoryBank,
+  listArticlesNumBank,
 };

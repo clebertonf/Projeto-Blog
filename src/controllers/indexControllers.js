@@ -23,8 +23,19 @@ const listArticlesCategory = async (req, resp) => {
   if (articles.length >= 1) return resp.render('articles/articlesByCategorie', { articles, categories });
   return resp.render('articles/notFound', { articles, categories });
 };
+
+const listArticlesNum = async (req, resp) => {
+  const { num } = req.params;
+  const categories = await CategoriesModel.listCategoriesBank();
+  const response = await ArticlesModel.listArticlesNumBank(num);
+
+  if (response.length > 1) return resp.render('articles/pageArticles', { response, categories });
+  return resp.render('articles/notFound', { response, categories });
+};
+
 module.exports = {
   listArticles,
   listArticleId,
   listArticlesCategory,
+  listArticlesNum,
 };
