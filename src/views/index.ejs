@@ -19,7 +19,7 @@
                 <!-- Post preview-->
                 <div class="post-preview">
                     <% response.forEach(post => { %>
-                        <a href="#">
+                        <a href="/<%= post.slug %> ">
                             <h2 class="post-title"><%= post.title %> </h2>
                             <h3 class="post-subtitle"><%- post.preview %> </h3>
                         </a>

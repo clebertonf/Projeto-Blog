@@ -1,7 +1,7 @@
 const connection = require('./connection');
 
 const listArticleBank = async () => {
-  const query = 'SELECT * FROM blog.tb_article';
+  const query = 'SELECT * FROM blog.tb_article ORDER BY id_article DESC';
   const [response] = await connection.execute(query);
   return response;
 };
