@@ -20,7 +20,18 @@ const verifyUserBank = async (email) => {
   }
 };
 
+const listUsersBank = async () => {
+  try {
+    const query = 'SELECT * FROM blog.tb_user';
+    const [response] = await connection.execute(query);
+    return response;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 module.exports = {
   createNewUserBank,
   verifyUserBank,
+  listUsersBank,
 };
