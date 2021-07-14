@@ -10,7 +10,7 @@ const addArticleBank = async (title, preview, article, idCategorie) => {
 };
 
 const listArticleBank = async () => {
-  const query = 'SELECT b.id_article, b.title, b.slug, a.title as title_categorie FROM tb_categorie as a INNER JOIN tb_article as b USING(id_categorie)';
+  const query = 'SELECT b.id_article, b.title, b.slug, a.title as title_categorie FROM tb_categorie as a INNER JOIN tb_article as b USING(id_categorie) ORDER BY b.id_article ';
   const [response] = await connection.execute(query);
   return response;
 };
