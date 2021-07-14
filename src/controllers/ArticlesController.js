@@ -28,9 +28,10 @@ const deleteArticle = async (req, resp) => {
 
 const editArticle = async (req, resp) => {
   const { id } = req.params;
+  const articles = await ArticlesModel.listArticleIDBank(id);
   const categories = await CategoriesModel.listCategoriesBank();
 
-  resp.render('articles/editArticle', { categories });
+  resp.render('articles/editArticle', { categories, articles });
 };
 
 module.exports = {

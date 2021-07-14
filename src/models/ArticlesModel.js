@@ -15,10 +15,20 @@ const listArticleBank = async () => {
   return response;
 };
 
-const deleteArticleBank = (id) => {
+const deleteArticleBank = async (id) => {
   try {
     const query = 'DELETE FROM blog.tb_article WHERE id_article = ?';
-    const response = connection.execute(query, [id]);
+    const response = await connection.execute(query, [id]);
+    return response;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const listArticleIDBank = async (id) => {
+  try {
+    const query = 'SELECT * FROM blog.tb_article WHERE id_article = ?';
+    const [response] = await connection.execute(query, [id]);
     return response;
   } catch (err) {
     console.error(err);
@@ -29,4 +39,5 @@ module.exports = {
   addArticleBank,
   listArticleBank,
   deleteArticleBank,
+  listArticleIDBank,
 };
