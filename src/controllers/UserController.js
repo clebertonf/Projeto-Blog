@@ -33,9 +33,16 @@ const deleteUser = async (req, resp) => {
   if (response) return resp.redirect('/admin/list/users');
 };
 
+const searchUser = async (req, resp) => {
+  const { id } = req.params;
+
+  console.log(id);
+};
+
 module.exports = {
   listUsers,
   viewCreateUser,
   createUser,
   deleteUser,
+  searchUser,
 };

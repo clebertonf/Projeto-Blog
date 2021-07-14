@@ -28,7 +28,7 @@
                                 <%= element.email %> 
                             </th>
                             <th>
-                                <a href="/admin/categories/search/1 " class="btn btn-outline-warning">Editar</a>
+                                <a href="/admin/users/search/<%= element.id_user %>  " class="btn btn-outline-warning">Editar</a>
                                 
                                 <form action="/admin/users/delete" method="POST" style="display: inline" onsubmit="confirmDelet(event, this)">
                                     <input type="hidden" name="id" value=<%= element.id_user %> >
