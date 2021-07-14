@@ -26,9 +26,17 @@ const deleteArticle = async (req, resp) => {
   if (response) resp.redirect('/admin/articles/list');
 };
 
+const editArticle = async (req, resp) => {
+  const { id } = req.params;
+  const categories = await CategoriesModel.listCategoriesBank();
+
+  resp.render('articles/editArticle', { categories });
+};
+
 module.exports = {
   renderViewAddArticle,
   createArticle,
   listArticles,
   deleteArticle,
+  editArticle,
 };
