@@ -33,7 +33,12 @@
                 <!-- Divider-->
                 <hr class="my-4" />
                 <!-- Pager-->
-                <div class="d-flex justify-content-end mb-4"> <a  class="btn btn-outline-dark" href="#" role="button">Mais publicações</a></div>
+                <div >
+                    <div class="d-flex justify-content-end mb-4" > 
+                        <a style="flex: 2 2  0%;"  class="btn btn-outline-dark" href="/page/<%= numInt - 1 %> " role="button">Anterior</a>
+                        <a style="flex: 2 2  0%;" class="btn btn-outline-dark" href="/page/<%= numInt + 1%> " role="button">Proximo</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
