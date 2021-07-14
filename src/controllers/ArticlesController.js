@@ -30,6 +30,7 @@ const editArticle = async (req, resp) => {
   const { id } = req.params;
   const articles = await ArticlesModel.listArticleIDBank(id);
   const categories = await CategoriesModel.listCategoriesBank();
+  console.log(categories);
 
   resp.render('articles/editArticle', { categories, articles });
 };

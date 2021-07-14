@@ -18,7 +18,11 @@
                     <label>Selecione uma categoria</label>
                     <select name="idCategorie" class="form-control">
                        <% categories.map(categorie => { %>
+                        <% if (categorie.id_categorie === articles[0].id_categorie) { %>
+                            <option selected=true value="<%= categorie.id_categorie %> "><%= categorie.title %> </option>
+                        <% } else { %>
                             <option value="<%= categorie.id_categorie %> "><%= categorie.title %> </option>
+                        <% } %> 
                        <% }) %>
                     </select>
                     <br>
