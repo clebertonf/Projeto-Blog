@@ -8,7 +8,8 @@
                 <h2>Editar artigo</h2>
             </div>
             <div class="card-body">
-                <form action="/admin/articles/save" method="POST">
+                <form action="/admin/articles/update" method="POST">
+                    <input type="hidden" value="<%= articles[0].id_article %>" name="id">
                     <input class="form-control" value="<%= articles[0].title %> " type="text" name="title" placeholder="Nome do artigo" required=true>
                     <br>
                     <input class="form-control" value="<%= articles[0].preview %>" type="text" name="preview" placeholder="Uma breve descrição" required=true>
@@ -16,7 +17,7 @@
                     <textarea id="article" name="article" class="form-control" placeholder="Escreva seu artigo"></textarea>
                     <br>
                     <label>Selecione uma categoria</label>
-                    <select name="idCategorie" class="form-control">
+                    <select name="categorieId" class="form-control">
                        <% categories.map(categorie => { %>
                         <% if (categorie.id_categorie === articles[0].id_categorie) { %>
                             <option selected=true value="<%= categorie.id_categorie %> "><%= categorie.title %> </option>
@@ -32,7 +33,7 @@
             </div>
         </div>
             <div id="content" value='a' style="display: none;">
-                <%- articles[0].article %> 
+                <%= articles[0].article %> 
             </div>
         </body>
     </div>

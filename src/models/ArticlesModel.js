@@ -35,9 +35,22 @@ const listArticleIDBank = async (id) => {
   }
 };
 
+const updateArticleBank = async (id, title, preview, article, categorieId) => {
+  try {
+    const slugifyTitle = slugify(title);
+    const query = 'UPDATE blog.tb_article SET title = ?, preview = ?, slug = ?, article = ?, id_categorie = ? WHERE id_article = ?';
+    const response = await connection
+      .execute(query, [title, preview, slugifyTitle, article, categorieId, id]);
+    return response;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 module.exports = {
   addArticleBank,
   listArticleBank,
   deleteArticleBank,
   listArticleIDBank,
+  updateArticleBank,
 };

@@ -30,9 +30,17 @@ const editArticle = async (req, resp) => {
   const { id } = req.params;
   const articles = await ArticlesModel.listArticleIDBank(id);
   const categories = await CategoriesModel.listCategoriesBank();
-  console.log(categories);
 
   resp.render('articles/editArticle', { categories, articles });
+};
+
+const updateArticle = async (req, resp) => {
+  const {
+    id, title, preview, article, categorieId,
+  } = req.body;
+
+  const response = await ArticlesModel.updateArticleBank(id, title, preview, article, categorieId);
+  if (response) resp.redirect('/admin/articles/list');
 };
 
 module.exports = {
@@ -41,4 +49,5 @@ module.exports = {
   listArticles,
   deleteArticle,
   editArticle,
+  updateArticle,
 };
