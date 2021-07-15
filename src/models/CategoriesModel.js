@@ -35,7 +35,7 @@ const listCategoriesBank = async () => {
 const deleteCategorieBank = async (id) => {
   try {
     const query = 'DELETE FROM blog.tb_categorie WHERE id_categorie = ?';
-    const response = connection.execute(query, [id]);
+    const response = await connection.execute(query, [id]);
     return response;
   } catch (err) {
     console.error(err);

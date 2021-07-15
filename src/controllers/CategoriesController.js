@@ -30,14 +30,19 @@ const addCategorieBank = async (req, resp) => {
 };
 
 const listCategories = async (_req, resp) => {
+  const error = false;
   const response = await CategoriesModel.listCategoriesBank();
-  if (response) resp.render('categories/listCategories', { response });
+  if (response) resp.render('categories/listCategories', { response, error });
 };
 
 const deleteCategorie = async (req, resp) => {
   const { id } = req.body;
-  const response = await CategoriesModel.deleteCategorieBank(id);
-  if (response) resp.redirect('/admin/categories/list');
+  const error = 'Categoria pertence a um Artigo, não pode ser Excluida. Apague o artigo Primeiro.';
+  const response = await CategoriesModel.listCategoriesBank();
+  const deleteCateg = await CategoriesModel.deleteCategorieBank(id);
+
+  if (!deleteCateg) return resp.render('categories/listCategories', { response, error });
+  if (deleteCateg) resp.redirect('/admin/categories/list');
 };
 
 const searchCategorieID = async (req, resp) => {

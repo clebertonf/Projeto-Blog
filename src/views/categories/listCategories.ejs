@@ -2,6 +2,11 @@
 <body>
     <%- include('../partials/navbar') %>
     <div class="container">
+        <% if (error) { %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %> 
+              </div>
+        <% } %>
         <hr>
             <h2>Categorias</h2>
             <hr>
