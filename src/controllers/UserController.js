@@ -33,10 +33,35 @@ const deleteUser = async (req, resp) => {
   if (response) return resp.redirect('/admin/list/users');
 };
 
-const searchUser = async (req, resp) => {
+const searchUserId = async (req, resp) => {
   const { id } = req.params;
+  const error = false;
+  const [response] = await UserModel.searchUserIdBank(id);
 
-  console.log(id);
+  if (response) return resp.render('user/editUserView', { response, error });
+  return resp.render('user/editUserView', { response, error });
+};
+
+const editUser = async (req, resp) => {
+  const {
+    name, email, id, passwordOld, passwordNew,
+  } = req.body;
+
+  const [response] = await UserModel.searchUserIdBank(id);
+
+  const { password } = response;
+
+  const validPasswordOld = bcrypt.compareSync(passwordOld, password);
+  if (validPasswordOld) {
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(passwordNew, salt);
+
+    const userUpdate = await UserModel.updateUserBank(name, email, hash, id);
+    if (userUpdate) return resp.redirect('/admin/list/users');
+  } else {
+    const error = 'Senha antiga não confere';
+    return resp.render('user/editUserView', { response, error });
+  }
 };
 
 module.exports = {
@@ -44,5 +69,6 @@ module.exports = {
   viewCreateUser,
   createUser,
   deleteUser,
-  searchUser,
+  searchUserId,
+  editUser,
 };

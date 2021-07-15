@@ -40,9 +40,31 @@ const deleteUserBank = async (id) => {
   }
 };
 
+const searchUserIdBank = async (id) => {
+  try {
+    const query = 'SELECT * FROM blog.tb_user WHERE id_user = ?';
+    const [response] = await connection.execute(query, [id]);
+    return response;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const updateUserBank = async (name, email, password, id) => {
+  try {
+    const query = 'UPDATE blog.tb_user SET name = ?, email= ?, password = ? WHERE id_user = ?';
+    const response = await connection.execute(query, [name, email, password, id]);
+    return response;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 module.exports = {
   createNewUserBank,
   verifyUserBank,
   listUsersBank,
   deleteUserBank,
+  searchUserIdBank,
+  updateUserBank,
 };
