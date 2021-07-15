@@ -3,7 +3,9 @@ const IndexRouter = require('./IndexRouter');
 const CategorieRouter = require('./CategoriesRouter');
 const ArticlesRouter = require('./ArticlesRouter');
 const UserRouter = require('./UserRouter');
+const LoginRouter = require('./LoginRouter');
 
+router.use('/', LoginRouter);
 router.use('/', IndexRouter);
 router.use('/admin', UserRouter);
 router.use('/admin', CategorieRouter);
