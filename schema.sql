@@ -28,4 +28,3 @@ CREATE TABLE tb_user (
     email VARCHAR(60) NOT NULL,
     password VARCHAR(60) NOT NULL
 );
-
