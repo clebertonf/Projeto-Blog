@@ -24,14 +24,19 @@ const userAuthentication = async (req, resp) => {
       idUser,
       emailUser,
     };
-    resp.json(req.session.user);
-  } else {
-    error = 'Senha Incorreta!';
-    return resp.render('user/login', { error });
+    return resp.redirect('/admin/articles/list');
   }
+  error = 'Senha Incorreta!';
+  return resp.render('user/login', { error });
+};
+
+const userLogout = (req, resp) => {
+  req.session.destroy();
+  return resp.redirect('/admin/login');
 };
 
 module.exports = {
   renderViewLogin,
   userAuthentication,
+  userLogout,
 };

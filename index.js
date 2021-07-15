@@ -13,7 +13,7 @@ app.use(session({
   saveUninitialized: true,
   secret: KEY_SECRET,
   cookie: {
-    maxAge: 30000,
+    maxAge: 3000000,
   },
 
 }));
