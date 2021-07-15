@@ -16,13 +16,16 @@ const userAuthentication = async (req, resp) => {
     return resp.render('user/login', { error });
   }
 
-  const { password: passwordBank, id_user: idUser, email: emailUser } = user;
+  const {
+    password: passwordBank, id_user: idUser, email: emailUser, name: nameUser,
+  } = user;
 
   const validPasswordOld = bcrypt.compareSync(password, passwordBank);
   if (validPasswordOld) {
     req.session.user = {
       idUser,
       emailUser,
+      nameUser,
     };
     return resp.redirect('/admin/articles/list');
   }
@@ -33,7 +36,7 @@ const userAuthentication = async (req, resp) => {
 const userLogout = (req, resp) => {
   req.session.destroy();
   req.session = null;
-  return resp.redirect('/admin/login');
+  return resp.redirect('/');
 };
 
 module.exports = {
