@@ -32,6 +32,7 @@ const userAuthentication = async (req, resp) => {
 
 const userLogout = (req, resp) => {
   req.session.destroy();
+  req.session = null;
   return resp.redirect('/admin/login');
 };
 
