@@ -9,6 +9,8 @@ app.set('view engine', 'ejs');
 app.set('views', './src/views');
 
 app.use(session({
+  resave: false,
+  saveUninitialized: true,
   secret: KEY_SECRET,
   cookie: {
     maxAge: 30000,
