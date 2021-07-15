@@ -21,6 +21,7 @@ const userAuthentication = async (req, resp) => {
   } = user;
 
   const validPasswordOld = bcrypt.compareSync(password, passwordBank);
+
   if (validPasswordOld) {
     req.session.user = {
       idUser,

@@ -28,3 +28,5 @@ CREATE TABLE tb_user (
     email VARCHAR(60) NOT NULL,
     password VARCHAR(60) NOT NULL
 );
+
+INSERT INTO tb_user (name, email, password) VALUES ('Admin', 'admin@email.com', '$2a$10$UA0JphOkkvdkQiNmE41TAu87SkOA3k/EimIi8fVt/Kmr4RS0PBcdK');
