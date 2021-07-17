@@ -9,7 +9,7 @@ const addArticleBank = async (title, preview, article, idCategorie) => {
       .execute(query, [title, article, preview, slugifyTitle, idCategorie]);
     return response;
   } catch (err) {
-    console.err(err);
+    console.error(err);
   }
 };
 
