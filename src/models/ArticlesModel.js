@@ -2,11 +2,15 @@ const slugify = require('slugify');
 const connection = require('./connection');
 
 const addArticleBank = async (title, preview, article, idCategorie) => {
-  const slugifyTitle = slugify(title);
-  const query = 'INSERT INTO blog.tb_article (title, article, preview, slug, id_categorie) VALUES (?, ?, ?, ?, ?)';
-  const response = await connection
-    .execute(query, [title, article, preview, slugifyTitle, idCategorie]);
-  return response;
+  try {
+    const slugifyTitle = slugify(title);
+    const query = 'INSERT INTO blog.tb_article (title, article, preview, slug, id_categorie) VALUES (?, ?, ?, ?, ?)';
+    const response = await connection
+      .execute(query, [title, article, preview, slugifyTitle, idCategorie]);
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 const listArticleBank = async () => {
