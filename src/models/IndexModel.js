@@ -31,11 +31,15 @@ const listArticlesByCategoryBank = async (id) => {
 };
 
 const listArticlesNumBank = async (num) => {
-  const quanty = 5;
-  const offSet = num * 5;
-  const query = `SELECT * FROM blog.tb_article ORDER BY id_article DESC LIMIT ${quanty} OFFSET ${offSet}`;
-  const [response] = await connection.execute(query);
-  return response;
+  try {
+    const quanty = 5;
+    const offSet = num * 5;
+    const query = `SELECT * FROM blog.tb_article ORDER BY id_article DESC LIMIT ${quanty} OFFSET ${offSet}`;
+    const [response] = await connection.execute(query);
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 module.exports = {
