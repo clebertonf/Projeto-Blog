@@ -1,9 +1,13 @@
 const connection = require('./connection');
 
 const listArticleBank = async () => {
-  const query = 'SELECT * FROM blog.tb_article ORDER BY id_article DESC LIMIT 5';
-  const [response] = await connection.execute(query);
-  return response;
+  try {
+    const query = 'SELECT * FROM blog.tb_article ORDER BY id_article DESC LIMIT 5';
+    const [response] = await connection.execute(query);
+    return response;
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 const listArticleIDBank = async (slug) => {
