@@ -11,9 +11,13 @@ const listArticleBank = async () => {
 };
 
 const listArticleIDBank = async (slug) => {
-  const query = 'SELECT * FROM blog.tb_article where slug = ?';
-  const [response] = await connection.execute(query, [slug]);
-  return response;
+  try {
+    const query = 'SELECT * FROM blog.tb_article where slug = ?';
+    const [response] = await connection.execute(query, [slug]);
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 const listArticlesByCategoryBank = async (id) => {
