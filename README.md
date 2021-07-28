@@ -58,12 +58,12 @@ para rodar localmente.
 - As demais dependêcias são instaladas com o comando npm install.
 
 - Crie um arquivo .env na raiz da pasta SRC com as seguintes variáveis de ambiente:
-- PORT= 'Porta da aplicação, normalmente 3000'
-- KEY_SECRET= 'Segredo para express-session'
-- DB_USER= 'User banco de dados'
-- DB_PASSWORD= 'Senha banco se houver'
-- DB_HOST= 'host do banco normalmente localhost'
-- DB_NAME= 'nome do banco: 'blog''
+  - PORT= 'Porta da aplicação, normalmente 3000'
+  - KEY_SECRET= 'Segredo para express-session'
+  - DB_USER= 'User banco de dados'
+  - DB_PASSWORD= 'Senha banco se houver'
+  - DB_HOST= 'host do banco normalmente localhost'
+  - DB_NAME= 'nome do banco: 'blog''
 
 ![arquivo .env](./src/public/imgs/02-env.png)
 
