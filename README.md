@@ -5,7 +5,7 @@ Olá seja bem vindo ao repositório do projeto Blog.
 Este projeto consiste em uma aplicação na arquitetura MVC utilizando NodeJs, e com banco de dados
 Mysql. Neste Blog e possivel fazer cadastro de novos usuários, com o cadastro feito e possivel criar,
 editar e deletar artigos, categorias e usuários. A finalidade deste projeto foi fazer um sistema onde 
-usuários cadastrados tenham as mesmas permiçoes de fazer qualquer coisa. Na parte de criação de artigos
+usuários cadastrados tenham as mesmas permissões de fazer qualquer coisa. Na parte de criação de artigos
 utilizei o [TinyMCE](https://www.tiny.cloud/) para ter um editor de texto completo. Siga no readme e
 conheça melhor o projeto, foi bem desafiador e no final de tudo eu percebi o quanto aprendi e me
 desenvoli com esta experiência.
