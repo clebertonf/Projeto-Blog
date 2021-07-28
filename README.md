@@ -16,6 +16,8 @@ Abaixo demonstro a pagina inicial do Blog sem nenhum Artigo cadastrado.
 
 ## Estrutura
 
+![estrutura](./src/public/imgs/04-estrutura.png)
+
 `MVC` - MODEL, VIEWS e CONTROLLERS
 
 1. MODEL: É responsável por toda interface com banco de dados, query's, conexão etc.
@@ -83,6 +85,4 @@ Abaixo estou ilustrando a página inicial da aplicação, com artigos cadastrado
 
 ![pagina inicial](./src/public/imgs/03-blog-principal-com-artigos.gif)
 
-Em seguida demostro o fluxo completo da aplicação, cadastrando uma pergunta e respondendo.
-
-![fluxo-completo]()
+# Em construção
