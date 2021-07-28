@@ -35,10 +35,10 @@ neste caso os arquivos são .ejs view engine utilizada.
 - Banco de dados:
   - Mysql
 - Segurança:
- - bcryptjs
- - express-session
+  - bcryptjs
+  - express-session
 - Padronização de URL:
- - slugify
+  - slugify
 - Configurações
   - Dotenv
 - View engine:
