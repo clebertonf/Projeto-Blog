@@ -85,4 +85,4 @@ Abaixo estou ilustrando a página inicial da aplicação, com artigos cadastrado
 
 ![pagina inicial](./src/public/imgs/03-blog-principal-com-artigos.gif)
 
-# Em construção
+# Continua ....
