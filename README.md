@@ -10,24 +10,21 @@ utilizei o [TinyMCE](https://www.tiny.cloud/) para ter um editor de texto comple
 conheça melhor o projeto, foi bem desafiador e no final de tudo eu percebi o quanto aprendi e me
 desenvoli com esta experiência.
 
-
-## Estrutura
-
 Abaixo demonstro a pagina inicial do Blog sem nenhum Artigo cadastrado.
 
 ![estrutura do projeto](./src/public/imgs/01-pagina-inicial.png)
 
+## Estrutura
+
 `MVC` - MODEL, VIEWS e CONTROLLERS
 
-1. MODEL: É responsável por toda interface com banco de dados, query's, conexão etc. No caso deste projeto 
-sequelize e o responsável.
-2. VIEWS: Se encontram todos os arquivos .HTML que renderizam as paginas e interface gráfica do sistema.
+1. MODEL: É responsável por toda interface com banco de dados, query's, conexão etc.
+2. VIEWS: Se encontram todos os arquivos .ejs que renderizam as paginas e interface gráfica do sistema.
 neste caso os arquivos são .ejs view engine utilizada.
 3. CONTROLLERS: É responsável em ligar o model com as views, fazendo o meio de campo da arquitetura.
 4. PUBLIC: Contém as imagens utilizadas no projeto, arquivos estáticos CSS e javaSript.
 5. ROUTERS:  Possui as rotas da aplicação, sistema de rotas próprio do framework Express.
-6. CONFIG: Possui as configurações de conexão do sequelize.
-7. MIGRATIONS / SEEDERS: Pastas do sequelize, para a estrutura do banco de dados.
+6. MIDDLEWARES: Possui os middlewares da aplicação, no caso temos o de autenticação.
 
 ## tecnologias utilizadas
 
@@ -37,8 +34,11 @@ neste caso os arquivos são .ejs view engine utilizada.
   - Express
 - Banco de dados:
   - Mysql
-- ORM:
-  - Sequelize
+- Segurança:
+ - bcryptjs
+ - express-session
+- Padronização de URL:
+ - slugify
 - Configurações
   - Dotenv
 - View engine:
@@ -58,14 +58,19 @@ para rodar localmente.
 - As demais dependêcias são instaladas com o comando npm install.
 
 - Crie um arquivo .env na raiz da pasta SRC com as seguintes variáveis de ambiente:
-  - MYSQL_PASSWORD= 'Sua senha do mysql se houver'
-  - MYSQL_USER= 'User mysql normalmente ROOT'
-  - HOSTNAME=localhost
+- PORT= 'Porta da aplicação, normalmente 3000'
+- KEY_SECRET= 'Segredo para express-session'
+- DB_USER= 'User banco de dados'
+- DB_PASSWORD= 'Senha banco se houver'
+- DB_HOST= 'host do banco normalmente localhost'
+- DB_NAME= 'nome do banco: 'blog''
 
-![arquivo .env]()
+![arquivo .env](./src/public/imgs/02-env.png)
+
+
 ## Executando
 
-
+Após as configurações, execute na raiz da pasta SRC o comando npm start ou npm run debug.
 
 Verifique o package.json, la se encontram scripts para execução do projeto.
 
