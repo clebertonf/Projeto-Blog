@@ -73,7 +73,7 @@ para rodar localmente.
 para o funcionamento do projeto.
 
 - Na tabela users já vem cadastrado um usuário ADM, seu email e: `admin@email.com` e sua senha
-e admin123. Utilize para realizar login na plataforma.
+e `admin123`. Utilize para realizar login na plataforma.
 
 
 ## Executando
@@ -91,4 +91,5 @@ Abaixo estou ilustrando a página inicial da aplicação, com artigos cadastrado
 
 ![pagina inicial](./src/public/imgs/03-blog-principal-com-artigos.gif)
 
-# Continua ....
+## Login de usuário
+
