@@ -101,6 +101,10 @@ Abaixo estou ilustrando a página inicial da aplicação, com artigos cadastrado
  Após logado o usuário tem acesso ao painel administrativo, onde e possivel, criar Artigos, categorias,
  usuários, editar e deletar. Um CRUD completo. A partir da senha é gerado um hash com a biblioteca `bcryptjs`, e a sessão do usuário e validada com o `express-session`.
 
- - Abaixo exemplifico cadastro de usuários
+ - Abaixo exemplifico cadastro, edição e exlusão de usuários
 
- ![cadstro de usuarios](./src/public/imgs/06-cadastro-de-user.gif)
+ ![cadastro de usuarios](./src/public/imgs/06-cadastro-de-user.gif)
+
+ - Abaixo exemplifico cadastro, edição e exclusão de categorias
+
+ ![cadastro de categoria](./src/public/imgs/07-categorias.gif)
