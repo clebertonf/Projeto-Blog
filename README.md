@@ -108,3 +108,7 @@ Abaixo estou ilustrando a página inicial da aplicação, com artigos cadastrado
  - Abaixo exemplifico cadastro, edição e exclusão de categorias
 
  ![cadastro de categoria](./src/public/imgs/07-categorias.gif)
+
+ - Abaixo exemplifico cadastro, edição e exclusão de artigo
+
+ ![cadastro de categoria](./src/public/imgs/08-posts.gif)
