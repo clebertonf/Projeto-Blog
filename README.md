@@ -94,6 +94,7 @@ Abaixo estou ilustrando a página inicial da aplicação, com artigos cadastrado
 ### - Login de usuário
  Abaixo demonstro o login de usuário com validação de email e senha. Automaticamente com o login validado
  o usuário e redirecionado para lista de artigos cadastrados no banco de dados.
+ O express-session cria uma sessão que expira em 1 hora, isto e configuravel no aquivo index nas configurações do express-session.
 
 ![login](./src/public/imgs/05-login.gif)
 
@@ -112,3 +113,9 @@ Abaixo estou ilustrando a página inicial da aplicação, com artigos cadastrado
  - Abaixo exemplifico cadastro, edição e exclusão de artigo
 
  ![cadastro de categoria](./src/public/imgs/08-posts.gif)
+
+ # Considerações finais
+
+ Este projeto Foi bem desafiador, aprendi conceitos importantes no desenvolvimento de aplicações WEB.
+ Estou em constante evolução, e continuarei a adicionar e melhorar este código. Espero que tenha ficado
+ claro seu funcionamento. Colabore sua ajuda será bem vinda!
