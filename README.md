@@ -69,6 +69,12 @@ para rodar localmente.
 
 ![arquivo .env](./src/public/imgs/02-env.png)
 
+- na raiz do projeto existe um arquivo `schema.sql`. copie e execute esse shema do banco
+para o funcionamento do projeto.
+
+- Na tabela users já vem cadastrado um usuário ADM, seu email e: `admin@email.com` e sua senha
+e admin123. Utilize para realizar login na plataforma.
+
 
 ## Executando
 
