@@ -11,11 +11,12 @@ const listArticles = async (req, resp) => {
 };
 
 const listArticleId = async (req, resp) => {
+  const { user: userLog } = req.session;
   const { slug } = req.params;
   const categories = await CategoriesModel.listCategoriesBank();
   const response = await ArticlesModel.listArticleIDBank(slug);
   const article = response[0];
-  if (response.length >= 1) return resp.render('articles/articleId', { article, categories });
+  if (response.length >= 1) return resp.render('articles/articleId', { article, categories, userLog });
 };
 
 const listArticlesCategory = async (req, resp) => {
