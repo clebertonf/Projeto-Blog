@@ -91,5 +91,10 @@ Abaixo estou ilustrando a página inicial da aplicação, com artigos cadastrado
 
 ![pagina inicial](./src/public/imgs/03-blog-principal-com-artigos.gif)
 
-### Login de usuário
+### - Login de usuário
+ Abaixo demonstro o login de usuário com validação de email e senha. Automaticamente com o login validado
+ o usuário e redirecionado para lista de artigos cadastrados no banco de dados.
 
+![login](./src/public/imgs/05-login.gif)
+
+## - Painel Administrativo
