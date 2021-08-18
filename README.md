@@ -3,12 +3,12 @@
 Olá seja bem vindo ao repositório do projeto Blog.
 
 Este projeto consiste em uma aplicação na arquitetura MVC utilizando NodeJs, e com banco de dados
-Mysql. Neste Blog e possivel fazer cadastro de novos usuários, com o cadastro feito e possivel criar,
+Mysql. Neste Blog é possivel fazer cadastro de novos usuários, com o cadastro feito é possivel criar,
 editar e deletar artigos, categorias e usuários. A finalidade deste projeto foi fazer um sistema onde 
 usuários cadastrados tenham as mesmas permissões de fazer qualquer coisa. Na parte de criação de artigos
 utilizei o [TinyMCE](https://www.tiny.cloud/) para ter um editor de texto completo. Siga no readme e
 conheça melhor o projeto, foi bem desafiador e no final de tudo eu percebi o quanto aprendi e me
-desenvoli com esta experiência.
+desenvolvi com esta experiência.
 
 Abaixo demonstro a pagina inicial do Blog sem nenhum Artigo cadastrado.
 
@@ -93,13 +93,13 @@ Abaixo estou ilustrando a página inicial da aplicação, com artigos cadastrado
 
 ### - Login de usuário
  Abaixo demonstro o login de usuário com validação de email e senha. Automaticamente com o login validado
- o usuário e redirecionado para lista de artigos cadastrados no banco de dados.
- O express-session cria uma sessão que expira em 1 hora, isto e configuravel no aquivo index nas configurações do express-session.
+ o usuário é redirecionado para lista de artigos cadastrados no banco de dados.
+ O express-session cria uma sessão que expira em 1 hora, isto é configuravel no aquivo index nas configurações do express-session.
 
 ![login](./src/public/imgs/05-login.gif)
 
 ## - Painel Administrativo
- Após logado o usuário tem acesso ao painel administrativo, onde e possivel, criar Artigos, categorias,
+ Após logado o usuário tem acesso ao painel administrativo, onde é possivel, criar Artigos, categorias,
  usuários, editar e deletar. Um CRUD completo. A partir da senha é gerado um hash com a biblioteca `bcryptjs`, e a sessão do usuário e validada com o `express-session`.
 
  - Abaixo exemplifico cadastro, edição e exlusão de usuários
